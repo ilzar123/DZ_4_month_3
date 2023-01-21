@@ -9,13 +9,15 @@ btn.addEventListener('click', ()=> {
         const date = JSON.parse(req.response)
         date.forEach(people => {
             const names = document.createElement('div')
-            names.innerHTML = people.name
+            names.innerText = 'name: ' + people.name
             document.body.append(names)
             const age = document.createElement('div')
-            age.innerHTML = people.age
+            age.innerText = 'age: ' + people.age
             document.body.append(age)
-            document.querySelector('.name').innerHTML += people.name //2
-            document.querySelector('.age').innerHTML += people.age
+            const wrapper = document.querySelector('.wrapper')
+            wrapper.append(names, age)
+            // document.querySelector('.name').innerHTML += people.name //2
+            // document.querySelector('.age').innerHTML += people.age
         })
     })
 })
